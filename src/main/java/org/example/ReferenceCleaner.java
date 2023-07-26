@@ -1,7 +1,5 @@
 package org.example;
 
-import cdm.base.staticdata.party.Party;
-import cdm.event.common.BusinessEvent;
 import com.rosetta.model.lib.RosettaModelObject;
 
 public class ReferenceCleaner<T extends RosettaModelObject> {
@@ -15,7 +13,7 @@ public class ReferenceCleaner<T extends RosettaModelObject> {
         this.includeGlobalKeys = includeGlobalKeys;
     }
 
-    public T removeUnusedReferences(T object) {
+    public T removeGlobalKeys(T object) {
         GlobalKeyCleanupProcessStep globalKeyCleanupProcessStep = new GlobalKeyCleanupProcessStep(includeGlobalKeys);
         GlobalKeyCleanupProcessStep.KeyPostProcessReport referenceRemoverPostProcessorReport = globalKeyCleanupProcessStep.runProcessStep(topLevelType, object.toBuilder());
         RosettaModelObject resultObject = referenceRemoverPostProcessorReport.getResultObject();

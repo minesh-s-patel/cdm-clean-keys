@@ -29,7 +29,7 @@ class ReferenceCleanerTest {
 
     @Test
     void allReferencesAreRemoved() {
-        BusinessEvent businessEvent = referenceCleaner.removeUnusedReferences(testEvent);
+        BusinessEvent businessEvent = referenceCleaner.removeGlobalKeys(testEvent);
         assertReferences(testEvent, businessEvent);
     }
 
